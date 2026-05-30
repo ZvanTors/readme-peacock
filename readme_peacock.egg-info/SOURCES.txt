@@ -1,0 +1,10 @@
+LICENSE
+README.md
+peacock.py
+pyproject.toml
+readme_peacock.egg-info/PKG-INFO
+readme_peacock.egg-info/SOURCES.txt
+readme_peacock.egg-info/dependency_links.txt
+readme_peacock.egg-info/entry_points.txt
+readme_peacock.egg-info/requires.txt
+readme_peacock.egg-info/top_level.txt

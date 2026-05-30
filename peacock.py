@@ -359,7 +359,7 @@ def main():
     parser.add_argument('input', nargs='?', default='README.md', help='Path to README.md')
     parser.add_argument('-o', '--output', default='index.html', help='Output HTML file')
     parser.add_argument('--repo', help='GitHub repository "user/repo" for quick-link buttons')
-    parser.add_argument('-v', '--version', action='version', version='readme-peacock 2.6.0')
+    parser.add_argument('-v', '--version', action='version', version='readme-peacock 1.0.1')
     args = parser.parse_args()
 
     if not Path(args.input).exists():

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "readme-peacock"
+version = "1.0.1"
+description = "Turn your README.md into a stunning landing page with one command"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "ZvanTors"}
+]
+keywords = ["readme", "landing-page", "static-site", "markdown", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "markdown",
+]
+
+[project.urls]
+Homepage = "https://github.com/ZvanTors/readme-peacock"
+"Bug Tracker" = "https://github.com/ZvanTors/readme-peacock/issues"
+
+[tool.setuptools]
+py-modules = ["peacock"]
+
+[project.scripts]
+peacock = "peacock:main"

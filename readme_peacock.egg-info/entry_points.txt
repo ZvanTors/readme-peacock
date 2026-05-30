@@ -1,0 +1,2 @@
+[console_scripts]
+peacock = peacock:main
