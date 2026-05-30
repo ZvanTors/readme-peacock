@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🦚 readme-peacock</title>
-    <!-- فونت Inter از گوگل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -43,7 +42,8 @@
                 --gradient-3: #a78bfa;
             }
         }
-
+        </style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -277,6 +277,7 @@
 <body>
     <header class="hero">
         <h1>🦚 readme-peacock</h1>
+        <div class="badges"><img src="https://img.shields.io/badge/python-3.8+-blue" alt="badge"><img src="https://img.shields.io/badge/license-MIT-green" alt="badge"><img src="https://img.shields.io/badge/version-1.1.0-brightgreen" alt="badge"><img src="https://img.shields.io/badge/status-active-success" alt="badge"></div>
         <div id="github-stats">
             <a class="gh-btn" href="https://github.com/ZvanTors/readme-peacock/issues" target="_blank">📄 Issues</a>
 <a class="gh-btn" href="https://github.com/ZvanTors/readme-peacock/pulls" target="_blank">🔀 Pull Requests</a>
@@ -289,7 +290,7 @@
         <main>
             <p><img alt="Python" src="https://img.shields.io/badge/python-3.8+-blue" />
 <img alt="License" src="https://img.shields.io/badge/license-MIT-green" />
-<img alt="Version" src="https://img.shields.io/badge/version-1.0.0-brightgreen" />
+<img alt="Version" src="https://img.shields.io/badge/version-1.1.0-brightgreen" />
 <img alt="Status" src="https://img.shields.io/badge/status-active-success" /></p>
 <p><strong>Turn your boring README.md into a stunning landing page — with a single command.</strong></p>
 <p align="center">
@@ -302,7 +303,8 @@
 <li>⚡ <strong>Zero configuration</strong> – Takes your <code>README.md</code> and outputs a ready‑to‑deploy <code>index.html</code>.</li>
 <li>🧠 <strong>Smart extraction</strong> – Auto‑detects project title, shields.io badges, and repository links.</li>
 <li>🔗 <strong>GitHub quick links</strong> – Add buttons for Issues, Pull Requests, Releases, Wiki and Star with <code>--repo</code>.</li>
-<li>📦 <strong>Single file</strong> – Just <code>peacock.py</code>, nothing more. Easy to understand, easy to contribute.</li>
+<li>📂 <strong>Multiple files</strong> – Process all Markdown files in a folder with <code>--all</code>.</li>
+<li>🎨 <strong>Themes</strong> – Choose between <code>glass</code> (default) and <code>dark</code> themes via <code>--template</code>.</li>
 </ul>
 <h2>📦 Installation</h2>
 <p>Make sure you have Python 3.8 or higher. Then install from PyPI:</p>
@@ -310,25 +312,37 @@
 <p>Or install directly from the repository:</p>
 <p>pip install git+https://github.com/ZvanTors/readme-peacock.git</p>
 <h2>🚀 Usage</h2>
-<h3>Basic</h3>
+<h3>Basic (single file)</h3>
 <p>Run the following command in any directory containing a <code>README.md</code>:</p>
 <p>peacock</p>
-<p>This creates an <code>index.html</code> in the same folder. Open it with your browser — that’s your landing page.</p>
+<p>This creates a <code>site/</code> folder with an <code>index.html</code> inside. Open it with your browser — that’s your landing page.</p>
 <h3>Custom paths and GitHub buttons</h3>
 <p>peacock README.md -o landing.html --repo "ZvanTors/readme-peacock"</p>
 <p>This will:
 - Read <code>README.md</code>
 - Save the output to <code>landing.html</code>
-- Add quick‑link buttons to your GitHub repository (Issues, Pull Requests, Releases, Wiki, Star)
-- Replace your Repo and User</p>
+- Add quick‑link buttons to your GitHub repository (Issues, Pull Requests, Releases, Wiki, Star)</p>
+<h3>Process all Markdown files in a directory</h3>
+<p>peacock --all</p>
+<p>Scans the current directory for all <code>.md</code> files and generates matching HTML pages in the <code>site/</code> folder.<br />
+<code>README.md</code> becomes <code>index.html</code>, others keep their original names (e.g., <code>faq.md</code> → <code>faq.html</code>).</p>
+<p>You can combine <code>--all</code> with <code>--repo</code> and <code>--template</code>:</p>
+<p>peacock --all --repo "ZvanTors/readme-peacock" --template dark</p>
+<h3>Choose a theme</h3>
+<p>peacock --template dark</p>
+<p>Available themes:
+- <code>glass</code> (default) – Light/dark auto-switching glassmorphism design.
+- <code>dark</code> – Always dark, high-contrast style with orange accents.</p>
 <h3>Show help</h3>
 <p>peacock --help</p>
 <h2>🖌️ Features</h2>
 <ul>
-<li><strong>Automatic dark/light mode</strong> – Respects your OS theme.</li>
+<li><strong>Automatic dark/light mode</strong> – Respects your OS theme (or forced dark with the <code>dark</code> template).</li>
 <li><strong>Gradient background animation</strong> – A smooth, living backdrop that never gets boring.</li>
 <li><strong>Badge extraction</strong> – All <code>shields.io</code> badges from your README appear in the hero section.</li>
 <li><strong>Title handling</strong> – The first <code>#</code> heading is moved to the hero, avoiding duplication.</li>
+<li><strong>Multi-file support</strong> – Convert all your Markdown files at once with <code>--all</code>.</li>
+<li><strong>Themes</strong> – Visual variety without losing the core design.</li>
 <li><strong>Responsive design</strong> – Looks great on mobile, tablet, and desktop.</li>
 <li><strong>No JavaScript API calls</strong> – Static buttons that always work, even offline.</li>
 </ul>
@@ -338,6 +352,9 @@
 <blockquote>
 <p><em>A landing page generated from the very README you are reading.</em></p>
 </blockquote>
+<h2>🚀 Live Demo</h2>
+<p>Check out the live landing page generated by readme-peacock itself:<br />
+<a href="https://zvanTors.github.io/readme-peacock">https://zvanTors.github.io/readme-peacock</a></p>
 <h2>🤝 Contributing</h2>
 <p>I’d love your help! To contribute:</p>
 <ol>
@@ -352,6 +369,43 @@
 <p>MIT © <a href="https://github.com/ZvanTors">ZvanTors</a></p>
 <hr />
 <p>Made with 🦚 by <a href="https://github.com/ZvanTors">ZvanTors</a></p>
+<hr />
+<h2>🚀 GitHub Action</h2>
+<p>You can use readme-peacock as a GitHub Action to automatically build and deploy your landing page on every push.</p>
+<ol>
+<li>Create a workflow file in your repository at .github/workflows/peacock.yml</li>
+<li>Paste the following content into it:</li>
+</ol>
+<p>name: Generate Landing Page
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:</p>
+<p>permissions:
+  contents: read
+  pages: write
+  id-token: write</p>
+<p>concurrency:
+  group: "pages"
+  cancel-in-progress: false</p>
+<p>jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: ZvanTors/readme-peacock@v1
+        with:
+          repo: ${{ github.repository }}</p>
+<ol>
+<li>
+<p>Go to your repository Settings → Pages → Source and select "GitHub Actions".</p>
+</li>
+<li>
+<p>Push to main and your landing page will be live at https://USERNAME.github.io/REPO</p>
+</li>
+</ol>
         </main>
         <footer>
             <p>Built with 🦚 <a href="https://github.com/ZvanTors/readme-peacock" target="_blank">readme-peacock</a></p>
