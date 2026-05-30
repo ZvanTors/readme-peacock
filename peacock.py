@@ -630,8 +630,7 @@ def build_site(readme_path='README.md', output='site/index.html', repo_url=None,
 </head>
 <body>
     <header class="hero">
-        <h1>{title}</h1>
-        
+        <h1>{title}</h1>        
         <div id="github-stats">
             {github_buttons_html}
         </div>
