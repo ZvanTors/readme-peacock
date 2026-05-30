@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "readme-peacock"
-version = "1.0.2"
+version = "1.1.0"
 description = "Turn your README.md into a stunning landing page with one command"
 readme = "README.md"
 license = {text = "MIT"}
