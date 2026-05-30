@@ -68,7 +68,6 @@ peacock --help
 ## 🖼️ Demo
 
 ![Screenshot](Screenshot1.png)
-
 ![Screenshot](Screenshot2.png)
 
 > *A landing page generated from the very README you are reading.*
