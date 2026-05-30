@@ -96,3 +96,42 @@ MIT © [ZvanTors](https://github.com/ZvanTors)
 ---
 
 Made with 🦚 by [ZvanTors](https://github.com/ZvanTors)
+
+---
+
+## 🚀 GitHub Action
+
+You can use readme-peacock as a GitHub Action to automatically build and deploy your landing page on every push.
+
+1. Create a workflow file in your repository at .github/workflows/peacock.yml
+2. Paste the following content into it:
+
+name: Generate Landing Page
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: ZvanTors/readme-peacock@v1
+        with:
+          repo: ${{ github.repository }}
+
+3. Go to your repository Settings → Pages → Source and select "GitHub Actions".
+
+4. Push to main and your landing page will be live at https://USERNAME.github.io/REPO

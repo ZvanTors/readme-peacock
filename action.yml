@@ -1,0 +1,46 @@
+name: 'readme-peacock - Landing Page Generator'
+description: 'Automatically turn your README.md into a beautiful landing page and deploy to GitHub Pages'
+author: 'ZvanTors'
+branding:
+  icon: 'book-open'
+  color: 'purple'
+
+inputs:
+  repo:
+    description: 'GitHub repository in "user/repo" format for quick-link buttons'
+    required: false
+    default: ${{ github.repository }}
+  output_dir:
+    description: 'Directory to put the generated landing page'
+    required: false
+    default: '_site'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: 📦 Install readme-peacock
+      run: pip install readme-peacock
+      shell: bash
+
+    - name: 🏗️ Build landing page
+      run: peacock --repo "${{ inputs.repo }}" -o ${{ inputs.output_dir }}/index.html
+      shell: bash
+
+    - name: ⚙️ Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: 📤 Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ${{ inputs.output_dir }}/
+
+    - name: 🚀 Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
