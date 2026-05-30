@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
+![Version](https://img.shields.io/badge/version-1.1.0-brightgreen)
 ![Status](https://img.shields.io/badge/status-active-success)
 
 **Turn your boring README.md into a stunning landing page — with a single command.**
@@ -17,7 +17,8 @@
 - ⚡ **Zero configuration** – Takes your `README.md` and outputs a ready‑to‑deploy `index.html`.
 - 🧠 **Smart extraction** – Auto‑detects project title, shields.io badges, and repository links.
 - 🔗 **GitHub quick links** – Add buttons for Issues, Pull Requests, Releases, Wiki and Star with `--repo`.
-- 📦 **Single file** – Just `peacock.py`, nothing more. Easy to understand, easy to contribute.
+- 📂 **Multiple files** – Process all Markdown files in a folder with `--all`.
+- 🎨 **Themes** – Choose between `glass` (default) and `dark` themes via `--template`.
 
 ## 📦 Installation
 
@@ -29,28 +30,43 @@ Or install directly from the repository:
 
 pip install git+https://github.com/ZvanTors/readme-peacock.git
 
-
 ## 🚀 Usage
 
-### Basic
+### Basic (single file)
 
 Run the following command in any directory containing a `README.md`:
 
 peacock
 
-
-This creates an `index.html` in the same folder. Open it with your browser — that’s your landing page.
+This creates a `site/` folder with an `index.html` inside. Open it with your browser — that’s your landing page.
 
 ### Custom paths and GitHub buttons
 
 peacock README.md -o landing.html --repo "ZvanTors/readme-peacock"
 
-
 This will:
 - Read `README.md`
 - Save the output to `landing.html`
 - Add quick‑link buttons to your GitHub repository (Issues, Pull Requests, Releases, Wiki, Star)
-- Replace your Repo and User
+
+### Process all Markdown files in a directory
+
+peacock --all
+
+Scans the current directory for all `.md` files and generates matching HTML pages in the `site/` folder.  
+`README.md` becomes `index.html`, others keep their original names (e.g., `faq.md` → `faq.html`).
+
+You can combine `--all` with `--repo` and `--template`:
+
+peacock --all --repo "ZvanTors/readme-peacock" --template dark
+
+### Choose a theme
+
+peacock --template dark
+
+Available themes:
+- `glass` (default) – Light/dark auto-switching glassmorphism design.
+- `dark` – Always dark, high-contrast style with orange accents.
 
 ### Show help
 
@@ -58,10 +74,12 @@ peacock --help
 
 ## 🖌️ Features
 
-- **Automatic dark/light mode** – Respects your OS theme.
+- **Automatic dark/light mode** – Respects your OS theme (or forced dark with the `dark` template).
 - **Gradient background animation** – A smooth, living backdrop that never gets boring.
 - **Badge extraction** – All `shields.io` badges from your README appear in the hero section.
 - **Title handling** – The first `#` heading is moved to the hero, avoiding duplication.
+- **Multi-file support** – Convert all your Markdown files at once with `--all`.
+- **Themes** – Visual variety without losing the core design.
 - **Responsive design** – Looks great on mobile, tablet, and desktop.
 - **No JavaScript API calls** – Static buttons that always work, even offline.
 
