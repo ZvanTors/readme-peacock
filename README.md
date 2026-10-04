@@ -201,7 +201,7 @@ Stop wasting hours building a website for every small project. Just run <code>pe
 
 <img src="Screenshot1.png" alt="Light Theme" width="700">
 
-<br><br>
+<br>
 
 <img src="Screenshot2.png" alt="Dark Theme" width="700">
 
