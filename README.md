@@ -26,8 +26,6 @@
 
 <br>
 
-<img src="Screenshot1.png" alt="readme-peacock Screenshot" width="720">
-
 </div>
 
 ---
@@ -201,13 +199,9 @@ Stop wasting hours building a website for every small project. Just run <code>pe
 
 <div align="center">
 
-<h3>Light Theme</h3>
-
 <img src="Screenshot1.png" alt="Light Theme" width="700">
 
 <br><br>
-
-<h3>Dark Theme</h3>
 
 <img src="Screenshot2.png" alt="Dark Theme" width="700">
 
